@@ -9,17 +9,18 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Param {
-
+	WebDriver driver = null;
 	@Parameters("BROWSER")
 	@Test
-	public void launchBrowser(String BROWSER)
-	{
+	public void launchBrowser(String BROWSER) {
 		if (BROWSER.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			WebDriver driver = new ChromeDriver();
+			driver = new ChromeDriver();
+			driver.close();
 		} else {
 			WebDriverManager.firefoxdriver().setup();
-			WebDriver driver = new FirefoxDriver();
+			driver = new FirefoxDriver();
+			driver.close();
 		}
 	}
 }
