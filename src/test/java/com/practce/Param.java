@@ -13,17 +13,20 @@ public class Param {
 	@Test
 	public void launchBrowser() {
 		String BROWSER = System.getProperty("BROWSER", "DEFAULT Value");
-		System.out.println(BROWSER);
+		String Message = System.getProperty("Message", "DEFAULT Message");
+		
 		System.out.println(BROWSER);
 		if (BROWSER.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.get("http://www.facebook.com");
 			driver.close();
+			System.out.println(Message);
 		} else {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			driver.close();
+			System.out.println(Message);
 		}
 	}
-}
+} 
