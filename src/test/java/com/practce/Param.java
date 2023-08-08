@@ -14,9 +14,11 @@ public class Param {
 	public void launchBrowser() {
 		String BROWSER = System.getProperty("BROWSER", "DEFAULT Value");
 		System.out.println(BROWSER);
+		System.out.println(BROWSER);
 		if (BROWSER.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+			driver.get("http://www.facebook.com");
 			driver.close();
 		} else {
 			WebDriverManager.firefoxdriver().setup();
